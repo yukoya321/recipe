@@ -1,0 +1,10 @@
+#mysql2 でのエラー
+http://sweep3092.hatenablog.com/entry/2014/12/11/163108
+sudo yum install mysql-devel
+
+#new -d db:mysql -T テストなし
+rails new recipe -d mysql -T
+
+#rspec
+bundle exec rails g rspec:install
+bundle exec rspec
