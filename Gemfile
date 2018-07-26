@@ -30,7 +30,7 @@ gem 'materialize-sass', '~> 1.0.0.beta', require: true
 
 gem 'material_design_lite-sass'
 
-gem 'sprockets', '3.7.1'
+gem 'sprockets', '~> 3.7.2'
 gem "cocoon"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
