@@ -1,0 +1,10 @@
+<li class="mdl-list__item list-bd__bottom tag__name">
+  <span class="mdl-list__item-primary-content">
+    <%= data.name%>
+  </span>
+  <%= link_to destroy_tag_path(data), :method => :delete do %>
+    <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light red', name: nil) do%>
+      <i class="material-icons">delete_sweep</i>
+    <% end %>
+  <% end %>
+</li>

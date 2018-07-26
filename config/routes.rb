@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   root 'index#index'
+   
+   get '/search/', to: 'search#index', as: 'search'
+   
+   get '/post', to: 'post#index', as: 'posts'
+   post '/post', to: 'post#create'
+   delete '/post/:id', to: 'post#destroy', as: 'destroy_post'
+   
+   get '/tag', to: 'tag#index', as: 'tags'
+   post '/tag', to: 'tag#create'
+   delete '/tag/:id', to: 'tag#destroy', as: 'destroy_tag'
+   
+   get '/foodstuff', to: 'foodstuff#index', as: 'foodstuffs'
+   post '/foodstuff', to: 'foodstuff#create'
+   delete '/foodstuff/:id', to: 'foodstuff#destroy', as: 'destroy_foodstuff'
 end

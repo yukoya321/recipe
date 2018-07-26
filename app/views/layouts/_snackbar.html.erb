@@ -1,0 +1,19 @@
+<div id="flash" class="mdl-js-snackbar mdl-snackbar <%= flash_cat %>">
+  <div class="mdl-snackbar__text text-center"></div>
+  <button class="mdl-snackbar__action" type="button" style="display: hidden;"></button>
+</div>
+<script>
+(function() {
+  'use strict';
+  var snackbarContainer = document.querySelector('#flash');
+  window.addEventListener('load', function() {
+    setTimeout(function(){
+      var data = {
+        message: '<%= msg %>',
+        timeout: 2000,
+      };
+      snackbarContainer.MaterialSnackbar.showSnackbar(data);  
+    }, 500);
+  });
+}());
+</script>

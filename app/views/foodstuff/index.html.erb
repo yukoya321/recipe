@@ -1,0 +1,31 @@
+<div class="container">
+<section>
+  <div class="row">
+      <h1 class="center-align">食材作成</h1>
+  </div>
+  <%= render partial: "common/new_form", locals: {data: @foodstuff, t_name: '食材', f_name: 'foodstuff'}%>
+</section>
+<% if @foodstuffs.present? %>
+<section>
+  <div class="row">
+    <h2 class="center-align">食材一覧</h2>
+  </div>
+  <div class="row">
+    <ul class="col s6 offset-s3">
+      <%= render partial: "common/foodstuff_list", collection: @foodstuffs, as: "data" %>
+    </ul>
+  </div>
+</section>
+<% end %>
+</div>
+
+<% #snackbar%>
+<% if flash[:notice] %>
+  <% provide(:msg, flash[:notice]) %>
+  <% provide(:flash_cat, 'mdl-color--blue-400') %>
+  <%=render 'layouts/snackbar' %>
+<% elsif flash[:error] %>
+  <% provide(:msg, flash[:error]) %>
+  <% provide(:flash_cat, 'mdl-color--red') %>
+  <%=render 'layouts/snackbar' %>
+<% end %>

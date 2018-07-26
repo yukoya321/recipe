@@ -1,0 +1,27 @@
+<!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title"><%= link_to 'Top', root_path, class: 'white-text'%></span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <%= link_to 'タグ新規作成', tags_path, class: 'mdl-navigation__link' %>
+        <%= link_to '食材新規登録', foodstuffs_path, class: 'mdl-navigation__link' %>
+        <%= link_to 'レシピ新規登録', posts_path, class: 'mdl-navigation__link' %>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <%= link_to 'タグ新規作成', tags_path, class: 'mdl-navigation__link'%>
+      <%= link_to '食材新規登録', foodstuffs_path, class: 'mdl-navigation__link' %>
+      <%= link_to 'レシピ新規登録', posts_path, class: 'mdl-navigation__link' %>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>

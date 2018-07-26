@@ -1,0 +1,22 @@
+<section class="section--center">
+    <div class="mdl-grid">
+      <div class="mdl-cell--middle mdl-cell--8-col  main">
+        <h1>レシピ一覧</h1>
+        <!-- Simple Textfield -->
+        <div class="mdl-grid">
+          <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--10-col">
+            <%= form_tag(search_path, method: :get, id: 'search') do%>
+              <%= text_field_tag 'name', '', class: 'mdl-textfield__input', autocomplete:'off' %>
+              <%= label_tag 'name', 'レシピ名で検索', class: 'mdl-textfield__label'%>
+            <% end %>
+          </div>
+          <div class="mdl-cell mdl-cell--1-col">
+            <%= button_tag(type: 'submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--accent saerch__button', form: 'search', name: nil) do%>
+              <i class="material-icons">search</i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+

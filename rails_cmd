@@ -2,9 +2,21 @@
 http://sweep3092.hatenablog.com/entry/2014/12/11/163108
 sudo yum install mysql-devel
 
+sudo service mysqld start
+
+#mysql
+utf8mb4
+
 #new -d db:mysql -T テストなし
 rails new recipe -d mysql -T
+
+#server
+bundle exec rails s -b $IP -p $PORT
 
 #rspec
 bundle exec rails g rspec:install
 bundle exec rspec
+
+#anotate
+
+anotates
