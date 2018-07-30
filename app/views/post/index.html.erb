@@ -1,37 +1,23 @@
 <section class="section--center">
-    <div class="mdl-grid">
-      <div class="mdl-cell--middle mdl-cell--8-col  main">
+  <div class="mdl-grid">
+    <div class="mdl-cell--middle mdl-cell--8-col  main">
       <section>
-        <h1 class="text-center">レシピ登録</h1>
+      <h1 class="text-center">レシピ登録</h1>
         <div class="mdl-grid">
-          <%= form_for @post, :html => {:class => "mdl-cell mdl-cell--12-col"} do |p|%>
-            <%= render partial: "post_form", locals: { f: p } %>
-            <%= p.fields_for :recipe_processes do |rp, num = 0| %>
-              <%= render partial: "process_form", locals: { f: rp } %>
-            <% end %>
-            <div class="mdl-grid">
-              <div class="link">
-                <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'mdl-button mdl-js-button mdl-button--raised 	mdl-color--pink-100 saerch__button'%>
-              </div>
-            </div>
-          <% end %>
-            <div class="mdl-grid">
-              <div class="mdl-layout-spacer"></div>
-              <%= button_tag(type: 'submit', class: 'mdl-button mdl-js-button mdl-button--raised 	mdl-color--pink-100 saerch__button', form: 'new_post', name: nil) do%>
-                <i class="material-icons">add</i>
-              <% end %>
-              <div class="mdl-layout-spacer"></div>
-            </div>
+        <%= form_for @post, :html => {:class => "mdl-cell mdl-cell--12-col"} do |p|%>
+          <%= render partial: "post_form", locals: { f: p } %>
+        <%= p.fields_for :recipe_processes do |rp, num = 0| %>
+          <%= render partial: "process_form", locals: { f: rp } %>
+        <% end %>
+          <div class="link mdl-grid">
+            <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'mdl-button mdl-js-button mdl-button--raised 	mdl-color--pink-100 saerch__button'%>
           </div>
-          <div class="mdl-layout-spacer"></div>
-          </div>
+        <% end %>
         </div>
-        </section>
-        
-      </div>
+      </section>
     </div>
+  </div>
 </section>
-
 <% #snackbar%>
 <% if flash[:notice] %>
   <% provide(:msg, flash[:notice]) %>

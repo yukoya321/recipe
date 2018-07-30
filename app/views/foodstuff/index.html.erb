@@ -21,11 +21,7 @@
 
 <% #snackbar%>
 <% if flash[:notice] %>
-  <% provide(:msg, flash[:notice]) %>
-  <% provide(:flash_cat, 'mdl-color--blue-400') %>
-  <%=render 'layouts/snackbar' %>
+  <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--blue-400', msg: flash[:notice]}%>
 <% elsif flash[:error] %>
-  <% provide(:msg, flash[:error]) %>
-  <% provide(:flash_cat, 'mdl-color--red') %>
-  <%=render 'layouts/snackbar' %>
+  <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--red', msg: flash[:error]}%>
 <% end %>
