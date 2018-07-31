@@ -6,6 +6,7 @@
         <div class="mdl-grid">
         <%= form_for @post, :html => {:class => "mdl-cell mdl-cell--12-col"} do |p|%>
           <%= render partial: "post_form", locals: { f: p } %>
+        <%= render partial: "common/check_boxes", locals: { p: p, id_name: :tag_ids, object_name: @tags} %>
         <%= p.fields_for :recipe_processes do |rp, num = 0| %>
           <%= render partial: "process_form", locals: { f: rp } %>
         <% end %>

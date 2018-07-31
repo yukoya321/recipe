@@ -1,0 +1,10 @@
+<div class="row">
+  <%= p.collection_check_boxes(id_name, object_name, :id, :name ) do |f|%>
+    <div class="col s3">
+      <%= f.label do %>
+        <%= f.check_box(class: 'filled-in') %>
+        <span><%= f.object.name %></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -2,10 +2,8 @@ class PostController < ApplicationController
   def index
     @post = Post.new
     @post.recipe_processes.build
-=begin
-    @user.tags.build
-    @user.foodstuffs.build
-=end   
+    @tags = Tag.all
+    @foodstuff = Foodstuff.all
   end
   
   def create

@@ -12,8 +12,8 @@
 class Post < ApplicationRecord
   has_many :recipe_processes, dependent: :destroy
   has_many :post_tags
-  has_many :tags, :through => :post_tags
+  has_many :tags, through: :post_tags
   has_many :post_foodstuffs
-  has_many :foodstuffs, :through => :post_foodstuffs
-  accepts_nested_attributes_for :recipe_processes, :tags, :foodstuffs
+  has_many :foodstuffs, through: :post_foodstuffs
+  accepts_nested_attributes_for :recipe_processes, :post_tags, :post_foodstuffs
 end
