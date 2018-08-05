@@ -6,13 +6,17 @@
         <div class="mdl-grid">
         <%= form_for @post, :html => {:class => "mdl-cell mdl-cell--12-col"} do |p|%>
           <%= render partial: "post_form", locals: { f: p } %>
-        <%= render partial: "common/check_boxes", locals: { p: p, id_name: :tag_ids, object_name: @tags} %>
+        <h2>タグ</h2>  
+        <%= render partial: "common/check_boxes", locals: { f: p, id_name: :tag_ids, object_name: @tags} %>
+        <h2>食材</h2>  
+        <%= render partial: "common/check_boxes", locals: { f: p, id_name: :foodstuff_ids, object_name: @foodstuffs} %>
         <%= p.fields_for :recipe_processes do |rp, num = 0| %>
           <%= render partial: "process_form", locals: { f: rp } %>
         <% end %>
           <div class="link mdl-grid">
             <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'mdl-button mdl-js-button mdl-button--raised 	mdl-color--pink-100 saerch__button'%>
           </div>
+          <%= p.submit %>
         <% end %>
         </div>
       </section>
@@ -21,11 +25,7 @@
 </section>
 <% #snackbar%>
 <% if flash[:notice] %>
-  <% provide(:msg, flash[:notice]) %>
-  <% provide(:flash_cat, 'mdl-color--blue-400') %>
-  <%=render 'layouts/snackbar' %>
+  <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--blue-400', msg: flash[:notice]}%>
 <% elsif flash[:error] %>
-  <% provide(:msg, flash[:error]) %>
-  <% provide(:flash_cat, 'mdl-color--red') %>
-  <%=render 'layouts/snackbar' %>
+  <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--red', msg: flash[:error]}%>
 <% end %>

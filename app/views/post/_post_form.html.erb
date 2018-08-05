@@ -1,8 +1,8 @@
-<div class="input-field mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-  <%= f.text_field :name, class: 'mdl-textfield__input', autocomplete:'off' %>
-  <%= f.label :name, 'レシピ名', class: 'mdl-textfield__label'%>
+<div class="input-field mdl-cell--12-col">
+  <%= f.text_field :name, class: 'validate', autocomplete:'off' %>
+  <%= f.label :name, 'レシピ名'%>
 </div>
-<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-  <%= f.text_area :description, class: 'mdl-textfield__input', autocomplete:'off', rows: 10 , style: "height: 150px"%>
-  <%= f.label :decription, 'レシピの概要', class: 'mdl-textfield__label'%>
+<div class="input-field mdl-cell--12-col">
+  <%= f.text_area :description, class: 'materialize-textarea', autocomplete:'off', rows: 10 , style: "height: 150px"%>
+  <%= f.label :decription, 'レシピの概要'%>
 </div>

@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604115351) do
+ActiveRecord::Schema.define(version: 20180804090158) do
 
   create_table "foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string "name", null: false
   end
 
   create_table "post_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
-    t.bigint "Post_id"
-    t.bigint "Foodstuff_id"
+    t.bigint "post_id"
+    t.bigint "foodstuff_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Foodstuff_id"], name: "index_post_foodstuffs_on_Foodstuff_id"
-    t.index ["Post_id"], name: "index_post_foodstuffs_on_Post_id"
+    t.index ["foodstuff_id"], name: "index_post_foodstuffs_on_foodstuff_id"
+    t.index ["post_id"], name: "index_post_foodstuffs_on_post_id"
   end
 
   create_table "post_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
-    t.bigint "Post_id"
-    t.bigint "Tag_id"
+    t.bigint "post_id"
+    t.bigint "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Post_id"], name: "index_post_tags_on_Post_id"
-    t.index ["Tag_id"], name: "index_post_tags_on_Tag_id"
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|

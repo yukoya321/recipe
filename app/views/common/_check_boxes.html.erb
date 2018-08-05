@@ -1,9 +1,9 @@
 <div class="row">
-  <%= p.collection_check_boxes(id_name, object_name, :id, :name ) do |f|%>
+  <%= f.collection_check_boxes(id_name, object_name, :id, :name, include_hidden: false) do |c|%>
     <div class="col s3">
-      <%= f.label do %>
-        <%= f.check_box(class: 'filled-in') %>
-        <span><%= f.object.name %></span>
+      <%= c.label do %>
+        <%= c.check_box(class: 'filled-in') %>
+        <span><%= c.object.name %></span>
       <% end %>
     </div>
   <% end %>

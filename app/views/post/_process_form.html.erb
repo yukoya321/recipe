@@ -1,15 +1,15 @@
 <div class="nested-fields">
   <div class="mdl-card mdl-shadow--2dp mdl-cell--12-col">
     <div class="mdl-card__supporting-text mdl-grid">
-      <div class="input-field mdl-js-textfield md-cell mdl-cell--10-col">
-        <%= f.text_field :title, class: 'mdl-textfield__input', autocomplete:'off', value: nil%>
-        <%= f.label :title, 'タイトル', class: 'mdl-textfield__label'%>
+      <div class="input-field mdl-cell--10-col">
+        <%= f.text_field :title, autocomplete:'off', value: nil%>
+        <%= f.label :title, 'タイトル'%>
       </div>
     </div>
     <div class="mdl-card__supporting-text mdl-grid">
-      <div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-        <%= f.text_area :description, class: 'mdl-textfield__input', autocomplete:'off', style: "height: 100px" %>
-        <%= f.label :decription, '工程', class: 'mdl-textfield__label'%>
+      <div class="input-field mdl-cell--12-col">
+        <%= f.text_area :description, class: 'materialize-textarea', autocomplete:'off', style: "height: 100px" %>
+        <%= f.label :decription, '工程' %>
       </div>
     </div>
   </div>
