@@ -1,13 +1,11 @@
-<%= form_for data, :html => { :class => 'col s12' } do |d|%>
+<%= form_for data, :html => { class: 'col s12 center-align' } do |d|%>
   <div class="row">
-    <div class="input-field col s6 offset-s2">
-      <%= d.text_field :name, class: 'mdl-textfield__input', autocomplete:'off' %>
-      <%= d.label :name, "新規の#{t_name}を作成", class: 'mdl-textfield__label'%>
+    <div class="input-field inline col s8 offset-s2">
+      <%= d.text_field :name, autocomplete:'off' %>
+      <%= d.label :name, "新規の#{t_name}を作成" %>
     </div>
-    <div class="col s2">
-      <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light indigo darken-4', form: "new_#{f_name}", name: nil) do%>
-        <i class="material-icons">add</i>
-      <% end %>
-    </div>
+    <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light indigo darken-4', form: "new_#{f_name}", name: nil) do%>
+      <i class="material-icons">add</i>
+    <% end %>
   </div>
 <% end %>

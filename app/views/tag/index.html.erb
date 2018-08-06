@@ -1,22 +1,20 @@
 <div class="container">
-<section>
-  <div class="row">
-      <h1 class="center-align">タグ作成</h1>
-  </div>
-  <%= render partial: "common/new_form", locals: {data: @tag, t_name: 'タグ', f_name: 'tag'}%>
-</section>
-<% if @tags.present? %>
-<section>
-  <div class="row">
-    <h2 class="center-align">タグ一覧</h2>
-  </div>
-  <div class="row">
-    <ul class="col s6 offset-s3">
-      <%= render partial: "common/tag_list", collection: @tags, as: "data" %>
-    </ul>
-  </div>
-</section>
-<% end %>
+  <section>
+    <%= render partial: "common/title", locals: {title: "タグ作成"}%>
+    <%= render partial: "common/new_form", locals: {data: @tag, t_name: 'タグ', f_name: 'tag'}%>
+  </section>
+  <% if @tags.present? %>
+  <section>
+    <div class="row">
+      <h2 class="center-align">タグ一覧</h2>
+    </div>
+    <div class="row">
+      <ul class="col s6 offset-s3">
+        <%= render partial: "common/tag_list", collection: @tags, as: "data" %>
+      </ul>
+    </div>
+  </section>
+  <% end %>
 </div>
 
 <% #snackbar%>

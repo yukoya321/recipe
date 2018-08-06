@@ -1,8 +1,6 @@
 <div class="container">
 <section>
-  <div class="row">
-      <h1 class="center-align">食材作成</h1>
-  </div>
+  <%= render partial: "common/title", locals: {title: "食材作成"}%>
   <%= render partial: "common/new_form", locals: {data: @foodstuff, t_name: '食材', f_name: 'foodstuff'}%>
 </section>
 <% if @foodstuffs.present? %>

@@ -1,28 +1,28 @@
-<section class="section--center">
-  <div class="mdl-grid">
-    <div class="mdl-cell--middle mdl-cell--8-col  main">
-      <section>
-      <h1 class="text-center">レシピ登録</h1>
-        <div class="mdl-grid">
-        <%= form_for @post, :html => {:class => "mdl-cell mdl-cell--12-col"} do |p|%>
+<div class="container">
+  <section>
+     <%= render partial: "common/title", locals: {title: "レシピ登録"}%>
+  </section>
+  <section>
+    <div class="row">
+      <%= form_for @post, :html => {:class => "col s12"} do |p|%>
           <%= render partial: "post_form", locals: { f: p } %>
         <h2>タグ</h2>  
         <%= render partial: "common/check_boxes", locals: { f: p, id_name: :tag_ids, object_name: @tags} %>
         <h2>食材</h2>  
         <%= render partial: "common/check_boxes", locals: { f: p, id_name: :foodstuff_ids, object_name: @foodstuffs} %>
-        <%= p.fields_for :recipe_processes do |rp, num = 0| %>
+        <%= p.fields_for :recipe_processes do |rp| %>
           <%= render partial: "process_form", locals: { f: rp } %>
         <% end %>
-          <div class="link mdl-grid">
-            <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'mdl-button mdl-js-button mdl-button--raised 	mdl-color--pink-100 saerch__button'%>
-          </div>
-          <%= p.submit %>
-        <% end %>
+        <div class="link row">
+          <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'btn-floating btn-large waves-effect waves-light red'%>
         </div>
-      </section>
+        <%= button_tag(type: 'submit', class: 'waves-effect waves-light btn-large', form: "new_post", name: nil) do%>
+          <i class="material-icons">add</i>
+        <% end %>
+      <% end %>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 <% #snackbar%>
 <% if flash[:notice] %>
   <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--blue-400', msg: flash[:notice]}%>

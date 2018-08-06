@@ -1,25 +1,29 @@
 <div class="container">
-<section>
-<div class="row">
-  <div class="col offset-s2">
-    <h1>レシピ一覧</h1>
-  </div>
-</div>
-<div class="row">
-  <%= form_tag(search_path, method: :get, id: 'search', class: 'col s12') do%>
+  <section>
     <div class="row">
-      <div class="input-field col s6 offset-s2">
-        <%= text_field_tag 'name', '', autocomplete:'off' %>
-        <%= label_tag 'name', 'レシピ名で検索'%>
+      <div class="col s12">
+        <h1 class="center-align">レシピ一覧</h1>
       </div>
-      <div class="col s2">
-        <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light red', form: 'search', name: nil) do%>
-          <i class="material-icons">search</i>
+    </div>
+    <div class="row">
+      <%= form_tag(search_path, method: :get, id: 'search', class: 'col s12 center-align') do%>
+        <div class="input-field inline col s8 offset-s2">
+          <%= text_field_tag 'name', '', autocomplete:'off' %>
+          <%= label_tag 'name', 'レシピ名で検索'%>
+        </div>
+          <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light red', form: 'search', name: nil) do%>
+            <i class="material-icons">search</i>
+          <% end %>
+      <% end %>
+    </div>
+    <h3>新着レシピ</h3>
+    <div class="row">
+      <div class="collection">
+        <% @post.each do |p| %>
+            <%= link_to p.name, show_post_path(p), class: 'collection-item'%>
         <% end %>
       </div>
     </div>
-  <% end %>
-</div>
-</section>
+  </section>
 </div>
 

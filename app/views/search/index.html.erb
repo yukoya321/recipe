@@ -16,6 +16,14 @@
             <% end %>
           </div>
         </div>
+        <div class="row">
+          <p>aaa</p>
+          <%= @post.each do |p| %>
+            <div class="col s12">
+              <p><%= p.name %></p>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 </section>

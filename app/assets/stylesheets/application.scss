@@ -6,6 +6,7 @@
 @import 'materialize';
 @import 'material';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import 'post';
 
 input[type=text]:not(.browser-default):focus:not([readonly]) + label{
   color: #9e9e9e;
