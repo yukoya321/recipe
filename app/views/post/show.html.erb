@@ -1,8 +1,35 @@
 <div class="container">
   <section>
+    <%= render partial: "common/title", locals: {title: "レシピ"}%>
     <div class="row">
       <div class="col s12">
         <h2><%= @post.name%></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+      <h3>タグ</h3>
+        <% if @post.tags.present? %>
+          <ul class="collection">
+          <% @post.tags.each do |t| %>
+            <li class="collection-item"><%= t.name %></li>
+          <% end %>
+          </ul>
+        <% else %>
+        <p>タグがありません。</p>
+        <% end %>
+      </div>
+      <div class="col s6">
+      <h3>食材</h3>
+        <% if @post.foodstuffs.present? %>
+          <ul class="collection">
+          <% @post.foodstuffs.each do |f| %>
+            <li class="collection-item"><%= f.name %></li>
+          <% end %>
+          </ul>
+        <% else %>
+        <p>タグがありません。</p>
+        <% end %>
       </div>
     </div>
   </section>
