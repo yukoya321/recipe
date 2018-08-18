@@ -33,6 +33,7 @@ gem 'material_design_lite-sass'
 
 gem 'sprockets', '~> 3.7.2'
 gem "cocoon"
+gem "auto_strip_attributes", "~> 2.4"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem "factory_bot_rails"
-  gem "auto_strip_attributes", "~> 2.4"
   gem 'annotate'
 end
 
