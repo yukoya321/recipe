@@ -28,8 +28,6 @@ class PostController < ApplicationController
     redirect_to posts_path, flash: {notice: 'destroy!! Success'}
   end
   
-  
-  
   private
   def post_params
     params.require(:post).permit(
@@ -48,7 +46,7 @@ class PostController < ApplicationController
   end
   
   def set_order
-    order_num = 0
+    order_num = 1
     process_order = params[:post][:recipe_processes_attributes]
     process_order.each do |k, v|
       v[:order] = order_num

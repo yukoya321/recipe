@@ -7,6 +7,9 @@ sudo service mysqld start
 #mysql
 utf8mb4
 
+#postgres
+sudo /etc/init.d/postgresql96 start  
+
 #new -d db:mysql -T テストなし
 rails new recipe -d mysql -T
 

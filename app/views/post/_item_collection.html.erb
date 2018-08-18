@@ -1,0 +1,12 @@
+<div class="col s12 m6">
+  <% if obj.present? %>
+    <ul class="collection with-header">
+      <li class = "collection-header"><h3><%= obj_name %></h3></li>
+    <% obj.each do |f| %>
+      <li class="collection-item"><%= f.name %></li>
+    <% end %>
+    </ul>
+  <% else %>
+    <p><%= obj_name %></p>
+  <% end %>
+</div>
