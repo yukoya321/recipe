@@ -52,5 +52,7 @@ production:
   <<: *default
   adapter: postgresql
   database: recipe_production
+  encoding: unicode
+  pool: 5
   username: recipe
   password: <%= ENV['RECIPE_DATABASE_PASSWORD'] %>
