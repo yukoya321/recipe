@@ -1,11 +1,20 @@
-.link{
-  &.row{
-   position: relative;
-   a{
-     position: absolute;
-     right: 12px;
-     top: -56px;
-   }
+.post{
+  h3{
+    border-bottom: 1px solid #9e9e9e;
+  }
+}
+
+.nest{
+  position: relative;
+  .link{
+    position: absolute;
+    right: 12px;
+    &.foodstuff_amounts{
+      bottom: -28px;
+    }
+    &.recipe_processes{
+      bottom: 6px;
+    }
   }
 }
 
@@ -13,12 +22,26 @@
   .bd__bottom{
     border-bottom: 1px solid #e0e0e0;
   }
-  .card-title{
+  &.foodstuff_amount_card{
+    padding-bottom: 14px;
+  }
+  &-title{
     &.process{
      &__title{
        line-height: 1.5;
        font-size: 18px;
      } 
+    }
+  }
+  &-content{
+    &.foodstuff_amount_form{
+     padding: 0;
+     margin: 0;
+     .valign-wrapper{
+       margin-top: 14px;
+       height: 3rem;
+       justify-content: center;
+     }
     }
   }
 }

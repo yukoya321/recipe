@@ -1,4 +1,5 @@
 <div class="row">
+  <%= object_name.all if object_name.nil? %>
   <%= f.collection_check_boxes(id_name, object_name, :id, :name, include_hidden: false) do |c|%>
     <div class="col s3">
       <%= c.label do %>

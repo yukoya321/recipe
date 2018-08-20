@@ -1,12 +1,11 @@
 class PostController < ApplicationController
 
-  before_action :set_order, only: [:create]
+  before_action :set_process_order, :set_foodstuff_amount_order, only: [:create]
   
   def index
     @post = Post.new
     @post.recipe_processes.build
-    @tags = Tag.all
-    @foodstuffs = Foodstuff.all
+    @post.foodstuff_amounts.build
   end
   
   def show
@@ -18,7 +17,7 @@ class PostController < ApplicationController
     if @post.save
       redirect_to posts_path, flash: {notice: 'Yes!! Success'}
     else
-      redirect_to posts_path, flash: {error: 'duplicated'}
+      render action: :index
     end
   end
   
@@ -33,10 +32,16 @@ class PostController < ApplicationController
     params.require(:post).permit(
       :name,
       :description,
+      :image,
       { 
         :tag_ids => [],
         :foodstuff_ids => []
       },
+      foodstuff_amounts_attributes:[
+        :foodstuff,
+        :amount,
+        :order,
+      ],
       recipe_processes_attributes:[
         :title,
         :description,
@@ -45,12 +50,18 @@ class PostController < ApplicationController
       )
   end
   
-  def set_order
-    order_num = 1
+  def set_process_order
+    order_num = 0
     process_order = params[:post][:recipe_processes_attributes]
     process_order.each do |k, v|
-      v[:order] = order_num
-      order_num += 1
+      v[:order] = order_num + 1
+    end
+  end
+  def set_foodstuff_amount_order
+    order_num = 0
+    foodstuff_amount_order = params[:post][:foodstuff_amounts_attributes]
+    foodstuff_amount_order.each do |k, v|
+      v[:order] = order_num + 1
     end
   end
   

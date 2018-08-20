@@ -1,16 +1,17 @@
-<div class="nested-fields row">
+<div class="nested-fields">
   <div class="card col s12">
     <div class="card-content">
-      <div class="input-field mdl-cell--10-col">
+      <div class="input-field">
         <%= f.text_field :title, autocomplete:'off', value: nil%>
         <%= f.label :title, 'タイトル'%>
       </div>
     </div>
     <div class="card-content">
-      <div class="input-field mdl-cell--12-col">
+      <div class="input-field">
         <%= f.text_area :description, class: 'materialize-textarea', autocomplete:'off', style: "height: 100px" %>
         <%= f.label :decription, '工程' %>
       </div>
     </div>
   </div>
+  <%= link_to_remove_association "削除", f %>
 </div>

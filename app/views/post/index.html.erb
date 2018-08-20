@@ -1,20 +1,44 @@
-<div class="container">
+<div class="container post">
   <section>
      <%= render partial: "common/title", locals: {title: "レシピ登録"}%>
   </section>
   <section>
     <div class="row">
       <%= form_for @post, :html => {:class => "col s12"} do |p|%>
-          <%= render partial: "post_form", locals: { f: p } %>
-        <h2>タグ</h2>  
-        <%= render partial: "common/check_boxes", locals: { f: p, id_name: :tag_ids, object_name: @tags} %>
-        <h2>食材</h2>  
-        <%= render partial: "common/check_boxes", locals: { f: p, id_name: :foodstuff_ids, object_name: @foodstuffs} %>
-        <%= p.fields_for :recipe_processes do |rp| %>
-          <%= render partial: "process_form", locals: { f: rp } %>
+      <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-        <div class="link row">
-          <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'btn-floating btn-large waves-effect waves-light red'%>
+        </ul>
+      </div>
+      <% end %>
+          <%= render partial: "post_form", locals: { f: p } %>
+        <h3>各食材と分量</h3>
+        <div class="row nest">
+          <div class="card foodstuff_amount_card col s12">
+            <%= p.fields_for :foodstuff_amounts do |foodstuff_amount| %>
+              <%= render partial: "foodstuff_amount_form", locals: { f: foodstuff_amount } %>
+            <% end %>
+            <div class="link foodstuff_amounts">
+              <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :foodstuff_amounts, partial: 'foodstuff_amount_form', class: 'btn-floating btn-large waves-effect waves-light red'%>
+            </div>
+          </div>
+        </div>
+        <h3>タグ選択</h3>
+        <%= render partial: "common/check_boxes", locals: { f: p, id_name: :tag_ids, object_name: Tag.all } %>
+        <h3>食材選択</h3>
+        <%= render partial: "common/check_boxes", locals: { f: p, id_name: :foodstuff_ids, object_name: Foodstuff.all } %>
+        <h3>工程・手順</h3>
+        <div class="row nest">
+          <%= p.fields_for :recipe_processes do |recipe_processe| %>
+            <%= render partial: "process_form", locals: { f: recipe_processe } %>
+          <% end %>
+          <div class="link recipe_processes">
+            <%= link_to_add_association '<i class="material-icons">add</i>'.html_safe, p, :recipe_processes, partial: 'process_form', class: 'btn-floating btn-large waves-effect waves-light red'%>
+          </div>
         </div>
         <%= button_tag(type: 'submit', class: 'waves-effect waves-light btn-large', form: "new_post", name: nil) do%>
           投稿
@@ -23,9 +47,3 @@
     </div>
   </section>
 </div>
-<% #snackbar%>
-<% if flash[:notice] %>
-  <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--blue-400', msg: flash[:notice]}%>
-<% elsif flash[:error] %>
-  <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--red', msg: flash[:error]}%>
-<% end %>

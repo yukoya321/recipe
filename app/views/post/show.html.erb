@@ -7,6 +7,12 @@
       </div>
     </div>
     <div class="row">
+      <div class="col s12 m6">
+        <%= image_tag @post.image.thumb.url, class: "responsive-img"%>
+      </div>
+      <%= render partial: "item_collection", locals: {obj: @post.foodstuffs, obj_name: "食材"} %>
+    </div>
+    <div class="row">
       <%= render partial: "item_collection", locals: {obj: @post.tags, obj_name: "タグ"} %>
       <%= render partial: "item_collection", locals: {obj: @post.foodstuffs, obj_name: "食材"} %>
     </div>

@@ -1,8 +1,18 @@
-<div class="input-field mdl-cell--12-col">
+<div class="input-field col s12">
   <%= f.text_field :name, class: 'validate', autocomplete:'off' %>
-  <%= f.label :name, 'レシピ名'%>
+  <%= f.label :name, '料理名'%>
 </div>
-<div class="input-field mdl-cell--12-col">
+<h3>料理の写真</h3>
+<div class="file-field input-field col s12">
+  <div class="btn">
+    <span>ファイル</span>
+    <%= f.file_field :image %>
+  </div>
+  <div class="file-path-wrapper">
+    <%= f.text_field :image, class: "file-path validate" %>
+  </div>
+</div>
+<div class="input-field col s12">
   <%= f.text_area :description, class: 'materialize-textarea', autocomplete:'off', rows: 10 , style: "height: 150px"%>
   <%= f.label :decription, 'レシピの概要'%>
 </div>

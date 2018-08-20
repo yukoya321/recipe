@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180804090158) do
+ActiveRecord::Schema.define(version: 20180818094556) do
+
+  create_table "foodstuff_amounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
+    t.string "foodstuff", null: false
+    t.string "amount", null: false
+    t.integer "order", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_foodstuff_amounts_on_post_id"
+  end
 
   create_table "foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string "name", null: false
@@ -39,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180804090158) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "recipe_processes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
@@ -56,5 +67,6 @@ ActiveRecord::Schema.define(version: 20180804090158) do
     t.string "name", null: false
   end
 
+  add_foreign_key "foodstuff_amounts", "posts"
   add_foreign_key "recipe_processes", "posts"
 end

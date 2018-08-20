@@ -28,6 +28,12 @@ module Recipe
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.assets.initialize_on_precompile = false
-
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      if instance.kind_of?(ActionView::Helpers::Tags::Label) || instance.kind_of?(ActionView::Helpers::Tags::FileField)
+        html_tag.html_safe
+      else
+        "#{html_tag}<span class=\"help-block\">#{instance.error_message.first}</span>".html_safe
+      end
+    end
   end
 end

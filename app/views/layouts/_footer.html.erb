@@ -1,3 +1,9 @@
+    <% #snackbar%>
+    <% if flash[:notice] %>
+      <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--blue-400', msg: flash[:notice]}%>
+    <% elsif flash[:error] %>
+      <%= render partial: 'layouts/snackbar', locals: {flash_cat: 'mdl-color--red', msg: flash[:error]}%>
+    <% end %>
     </main>
 </div>
 </body>

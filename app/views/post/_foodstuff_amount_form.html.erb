@@ -1,0 +1,13 @@
+<div class="card-content nested-fields foodstuff_amount_form">
+  <div class="input-field col s12 m6">
+    <%= f.text_field :foodstuff, autocomplete:'off' %>
+    <%= f.label :foodstuff, '食材' %>
+  </div>
+  <div class="input-field col s12 m5">
+    <%= f.text_field :amount, autocomplete:'off' %>
+    <%= f.label :amount, '分量（単位あり）' %>
+  </div>
+  <div class="valign-wrapper col s12 m1">
+    <%= link_to_remove_association "削除", f %>
+  </div>
+</div>
