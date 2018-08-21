@@ -25,4 +25,9 @@ class Post < ApplicationRecord
   validates :description, presence: true, length: { maximum: 255 }
   validates :image, presence: true
   validates :recipe_processes, :length => { :minimum => 1}
+  
+  
+  # def reject_(attribute)
+  #   attribute['school_name'].blank?
+  # end
 end
