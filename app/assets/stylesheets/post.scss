@@ -18,20 +18,23 @@
   }
 }
 
+.processe{
+  .card{
+    &-content{
+      padding: 12px;
+      .process__order{
+        @extend .grey-text, .lighten-2;
+      }
+    }
+  }
+}
+
 .card{
   .bd__bottom{
     border-bottom: 1px solid #e0e0e0;
   }
   &.foodstuff_amount_card{
     padding-bottom: 14px;
-  }
-  &-title{
-    &.process{
-     &__title{
-       line-height: 1.5;
-       font-size: 18px;
-     } 
-    }
   }
   &-content{
     &.foodstuff_amount_form{
