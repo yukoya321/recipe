@@ -54,14 +54,16 @@ class PostController < ApplicationController
     order_num = 0
     process_order = params[:post][:recipe_processes_attributes]
     process_order.each do |k, v|
-      v[:order] = order_num + 1
+      order_num += 1
+      v[:order] = order_num
     end
   end
   def set_foodstuff_amount_order
     order_num = 0
     foodstuff_amount_order = params[:post][:foodstuff_amounts_attributes]
     foodstuff_amount_order.each do |k, v|
-      v[:order] = order_num + 1
+      order_num += 1
+      v[:order] = order_num
     end
   end
   
