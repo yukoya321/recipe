@@ -8,16 +8,16 @@ class TagController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
-      redirect_to tags_path, flash: {notice: 'Yes!! Success'}
+      redirect_to tags_path, flash: {notice: '作成されました'}
     else
-      redirect_to tags_path, flash: {error: 'duplicated'}
+      redirect_to tags_path, flash: {error: 'エラーもしくは重複があります'}
     end
   end
   
   def destroy
     @tag = Tag.find_by(id: params[:id])
     @tag.destroy
-    redirect_to tags_path, flash: {notice: 'destroy!! Success'}
+    redirect_to tags_path, flash: {notice: '削除されました'}
   end
   
   private

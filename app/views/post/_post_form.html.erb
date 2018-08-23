@@ -7,9 +7,14 @@
   <div class="btn">
     <span>ファイル</span>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
   </div>
   <div class="file-path-wrapper">
-    <%= text_field_tag "", "", class: "file-path validate" %>
+    <% image_cache = @post.image_cache.present? ? File.basename(@post.image_cache) : "" %>
+    <%= text_field_tag "", image_cache, class: "file-path validate" %>
+    <% if @post.errors[:image].present? %>
+      <span><%= @post.errors.full_messages_for(:image).join %></span>
+    <% end %>
   </div>
 </div>
 <div class="input-field col s12">

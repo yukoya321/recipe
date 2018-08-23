@@ -15,8 +15,10 @@ class PostController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, flash: {notice: 'Yes!! Success'}
+      redirect_to show_post_path(@post.id), flash: {notice: '作成されました。'}
     else
+      @post = Post.new(post_params)
+      @post.valid?
       render action: :index
     end
   end
@@ -24,7 +26,7 @@ class PostController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    redirect_to posts_path, flash: {notice: 'destroy!! Success'}
+    redirect_to posts_path, flash: {notice: '削除されました'}
   end
   
   private
@@ -33,6 +35,7 @@ class PostController < ApplicationController
       :name,
       :description,
       :image,
+      :image_cache,
       { 
         :tag_ids => [],
         :foodstuff_ids => []
