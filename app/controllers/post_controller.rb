@@ -15,6 +15,10 @@ class PostController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      foodstuff = post_params[:foodstuff_amounts_attributes]
+      foodstuff.each do |k, v|
+        Foodstuff.find_or_create_by(name: v[:foodstuff])
+      end
       redirect_to show_post_path(@post.id), flash: {notice: '作成されました。'}
     else
       @post = Post.new(post_params)
