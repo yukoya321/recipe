@@ -30,12 +30,8 @@
       </div>
     </div>
     <div class="row">
-      <% if @post.tags.present? %>
-        <%= render partial: "item_collection", locals: {obj: @post.tags, obj_name: "タグ"} %>
-      <% end %>
-      <% if @post.foodstuffs.present? %>
-        <%= render partial: "item_collection", locals: {obj: @post.foodstuffs, obj_name: "食材タグ"} %>
-      <% end %>
+      <%= render partial: "item_collection", locals: {obj: @post.tags, obj_name: "タグ"} %>
+      <%= render partial: "item_collection", locals: {obj: @post.foodstuffs, obj_name: "食材タグ"} %>
     </div>
     <div class="row">
     <% @post.recipe_processes.order(order: "ASC").each do |process| %>

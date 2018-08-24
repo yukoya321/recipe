@@ -1,5 +1,8 @@
 class SearchController < ApplicationController
   def index
-    @post = Post.limit(10).order('created_at DESC')
+    @word = params[:q]
+    @search = Post.ransack(@word)
+    @posts = @search.result
+    @q = Post.search
   end
 end

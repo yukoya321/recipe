@@ -5,12 +5,12 @@
   <section>
     <%= render partial: "common/title", locals: {title: "レシピ一覧"}%>
     <div class="row">
-      <%= form_tag(search_path, method: :get, id: 'search', class: 'col s12 center-align') do%>
+      <%= search_form_for(@q, url: search_path, html: { method: :get}) do |f| %>
         <div class="input-field inline col s8 offset-s2">
-          <%= text_field_tag 'name', '', autocomplete:'off' %>
-          <%= label_tag 'name', 'レシピ名で検索'%>
+          <%= f.text_field :name_cont, autocomplete: "off"%>
+          <%= f.label :name, "レシピ名で検索"%>
         </div>
-          <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light red', form: 'search', name: nil) do%>
+          <%= button_tag(type: 'submit', class: 'btn-floating btn-large waves-effect waves-light red', form: 'post_search', name: nil) do%>
             <i class="material-icons">search</i>
           <% end %>
       <% end %>
